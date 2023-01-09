@@ -40,3 +40,20 @@ function play(playerSelection, computerSelection) {
             console.log(`You Win! ${p} beats ${c}`);
     }        
 }
+
+function game() {
+    // Run a 5 round game of rock paper scissors. 
+    for (let i = 0; i < 5; i++)
+    {
+        // Get the user selection.
+        // NOTE: This doesn't check whether some form of rock, paper or scissors is actually entered.
+        let playerSelection = prompt("Please choose between rock, paper and scissors: ");
+
+        // Get the computer selection. 
+        let computerSelection = getComputerChoice();
+
+        play(playerSelection, computerSelection);
+    }
+}
+
+game();
