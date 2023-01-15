@@ -9,32 +9,33 @@ function getComputerChoice() {
     return choices[choice];
 }
 
-function play(playerSelection, computerSelection) {
-    // Convert the strings to all lowercase to allow case sensitivty. 
-    let p = playerSelection.toLowerCase();
-    let c = computerSelection.toLowerCase();
+function play(e) {
+    // e.target lists the element <button> text </button>
+    // (e.target).innerHtml will bring out the text inside the button.
+    let p = (e.target).innerHTML
+    let c = getComputerChoice();
 
     // Create logic of who wins. 
     // First Case: Same selection
     if (p == c)
         console.log(`You Tie! You both picked ${p}!`);
     // Second Case: Not a tie and player chose rock.
-    else if (p == "rock") {
-        if (c == "paper")
+    else if (p == "Rock") {
+        if (c == "Paper")
             console.log(`You Lose! ${c} beats ${p}`);
         else 
             console.log(`You Win! ${p} beats ${c}`);
     }
     // Third Case: Not a tie and player chose paper. 
-    else if (p == "paper") {
-        if (c == "scissors")
+    else if (p == "Paper") {
+        if (c == "Scissors")
             console.log(`You Lose! ${c} beats ${p}`);
         else 
             console.log(`You Win! ${p} beats ${c}`);
     }
     // Final Case: Not a tie and player chose scissors.
     else {
-        if (c == "rock")
+        if (c == "Rock")
             console.log(`You Lose! ${c} beats ${p}`);
         else 
             console.log(`You Win! ${p} beats ${c}`);
@@ -56,4 +57,9 @@ function game() {
     // }
 }
 
-game();
+// Get a list of all the buttons.
+const btns = document.querySelectorAll('button');
+
+// Add an event listener to each button.
+// When each button is clicked, call the function play. 
+btns.forEach(btn => btn.addEventListener('click', play));
