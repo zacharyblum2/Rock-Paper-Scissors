@@ -20,9 +20,20 @@ function play(e) {
 
     // Create logic of who wins. 
     // First Case: Same selection
-    if (p == c)
-        // Change the innerHTML of our result div to the result of the game.
-        result.innerHTML = `You Tie! You both picked ${p}!`;
+    if (p == c) {
+        pScore++;
+        cScore++;
+
+        if (pScore == 5)
+            result.innerHTML = `You've won the game ${pScore} to ${cScore}`;
+        else if (cScore == 5) 
+            result.innerHTML = `You've lost the game ${cScore} to ${pScore}`;
+        else
+            // Change the innerHTML of our result div to the result of the game.
+            result.innerHTML = `You Tie! You both picked ${p}!`;
+        
+    }
+        
     // Second Case: Not a tie and player chose rock.
     else if (p == "Rock") {
         if (c == "Paper")
@@ -60,6 +71,9 @@ function game() {
         play(playerSelection, computerSelection);
     // }
 }
+
+let pScore = 0;
+let cScore = 0;
 
 // Get a list of all the buttons.
 const btns = document.querySelectorAll('button');
