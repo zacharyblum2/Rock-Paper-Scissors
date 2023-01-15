@@ -15,30 +15,34 @@ function play(e) {
     let p = (e.target).innerHTML
     let c = getComputerChoice();
 
+    // Save the div we want to output results to.
+    const result = document.querySelector('.result');
+
     // Create logic of who wins. 
     // First Case: Same selection
     if (p == c)
-        console.log(`You Tie! You both picked ${p}!`);
+        // Change the innerHTML of our result div to the result of the game.
+        result.innerHTML = `You Tie! You both picked ${p}!`;
     // Second Case: Not a tie and player chose rock.
     else if (p == "Rock") {
         if (c == "Paper")
-            console.log(`You Lose! ${c} beats ${p}`);
+            result.innerHTML = `You Lose! ${c} beats ${p}`;
         else 
-            console.log(`You Win! ${p} beats ${c}`);
+            result.innerHTML = `You Win! ${p} beats ${c}`;
     }
     // Third Case: Not a tie and player chose paper. 
     else if (p == "Paper") {
         if (c == "Scissors")
-            console.log(`You Lose! ${c} beats ${p}`);
+            result.innerHTML = `You Lose! ${c} beats ${p}`;
         else 
-            console.log(`You Win! ${p} beats ${c}`);
+            result.innerHTML = `You Win! ${p} beats ${c}`;
     }
     // Final Case: Not a tie and player chose scissors.
     else {
         if (c == "Rock")
-            console.log(`You Lose! ${c} beats ${p}`);
+            result.innerHTML = `You Lose! ${c} beats ${p}`;
         else 
-            console.log(`You Win! ${p} beats ${c}`);
+            result.innerHTML = `You Win! ${p} beats ${c}`;
     }        
 }
 
