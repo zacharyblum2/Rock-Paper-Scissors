@@ -43,8 +43,8 @@ function play(playerSelection, computerSelection) {
 
 function game() {
     // Run a 5 round game of rock paper scissors. 
-    for (let i = 0; i < 5; i++)
-    {
+    // for (let i = 0; i < 5; i++)
+    // {
         // Get the user selection.
         // NOTE: This doesn't check whether some form of rock, paper or scissors is actually entered.
         let playerSelection = prompt("Please choose between rock, paper and scissors: ");
@@ -53,7 +53,7 @@ function game() {
         let computerSelection = getComputerChoice();
 
         play(playerSelection, computerSelection);
-    }
+    // }
 }
 
 game();
