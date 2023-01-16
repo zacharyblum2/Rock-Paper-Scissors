@@ -3,15 +3,44 @@
 <head>
     <meta charset="UTF-8">
     <script src="rockPaperScissors.js" defer></script>
+    <link rel="stylesheet" type="text/css" href="./css/styles.css"></script>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Cairo">
     <title>Rock Paper Scissors</title>
 </head>
-<body>
-    <button>Rock</button>
-    <button>Paper</button>
-    <button>Scissors</button>
-
-    <div class="result">
-
+<body class="background-color">
+    <div class="header">
+        <!--Fancy text saying ROCK PAPER SCISSORS-->
+        <p>ROCK PAPER SCISSORS</p>
     </div>
+    
+    <!-- Way to communicate what the computer chose. -->
+    <div class="content">
+        <!-- Div that keeps track of the score. Measure player and CPU score.-->
+        <!-- Add images for score and player, make it look fancier -->
+        <div class="score">
+            <div class="player">
+                <p>Score: 0</p>
+                <img src="./images/Player.jpg" alt="Player image">
+                <p class="playerChoice"></p>
+            </div>
+            <div class="CPU">
+                <p>Score: 0</p>
+                <img src="./images/CPU.png" alt="CPU image">
+                <p class="computerChoice"></p>
+            </div>
+        </div> 
+
+        <div class="choices">
+            <button>Rock</button>
+            <button>Paper</button>
+            <button>Scissors</button>
+        </div>
+        
+    </div>
+    
+    <div class="footer">
+        <p>Copyright © Zachary Blum 2023</p>
+    </div>
+    
 </body>
 </html>

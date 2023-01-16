@@ -15,6 +15,15 @@ function play(e) {
     let p = (e.target).innerHTML
     let c = getComputerChoice();
 
+    let pChoice = document.querySelector('.playerChoice');
+    let cChoice = document.querySelector('.computerChoice');
+
+    pChoice.innerHTML = p;
+    cChoice.innerHTML = c;
+
+    let ps = documnet.querySelector('.player');
+    let cs = document.querySelector('.CPU');
+
     // Save the div we want to output results to.
     const result = document.querySelector('.result');
 
@@ -23,6 +32,9 @@ function play(e) {
     if (p == c) {
         pScore++;
         cScore++;
+
+        ps.innerHTML = pScore;
+        cs.innerHTML = cScore;
 
         if (pScore == 5)
             result.innerHTML = `You've won the game ${pScore} to ${cScore}`;
