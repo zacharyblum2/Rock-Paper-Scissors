@@ -30,13 +30,37 @@
 .score {
     display: flex;
     justify-content: center;
+    margin: 0;
+    padding: 0;
     gap: 40px;
-    color: vair(--text-color);
+    color: var(--third-color);
+    text-align: center;
 }
 
 .footer {
     display: flex;
+    text-align: center;
     justify-content: center;
+    align-items: flex-end;
+    color: var(--seconday-color);
+}
+
+.player .CPU {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.choices {
+    display: flex;
+    justify-content: space-evenly;
+    gap: 18px;
+}
+
+.win {
+    color: var(--text-color);
+    margin: 0;
+    padding: 0;
 }
 
 /* Remove padding around div's, make it flush */
@@ -51,4 +75,13 @@ body {
 img {
     height: 150px;
     width: 200px;
+}
+
+button {
+    background-color: var(--main-color);
+    border: solid;
+    border-color: var(--third-color);
+    color: var(--third-color);
+    padding: 10px 24px;
+    border-radius: 8px;
 }

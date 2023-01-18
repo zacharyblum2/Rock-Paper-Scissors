@@ -21,8 +21,12 @@ function play(e) {
     pChoice.innerHTML = p;
     cChoice.innerHTML = c;
 
-    let ps = documnet.querySelector('.player');
-    let cs = document.querySelector('.CPU');
+    let numP = document.querySelector('.numP');
+    let numC = document.querySelector('.numC');
+
+    let win = document.querySelector('.win');
+
+    win.innerText = '';
 
     // Save the div we want to output results to.
     const result = document.querySelector('.result');
@@ -30,43 +34,53 @@ function play(e) {
     // Create logic of who wins. 
     // First Case: Same selection
     if (p == c) {
-        pScore++;
-        cScore++;
-
-        ps.innerHTML = pScore;
-        cs.innerHTML = cScore;
-
-        if (pScore == 5)
-            result.innerHTML = `You've won the game ${pScore} to ${cScore}`;
-        else if (cScore == 5) 
-            result.innerHTML = `You've lost the game ${cScore} to ${pScore}`;
-        else
-            // Change the innerHTML of our result div to the result of the game.
-            result.innerHTML = `You Tie! You both picked ${p}!`;
-        
+        pScore += 1;
+        cScore += 1;       
     }
-        
     // Second Case: Not a tie and player chose rock.
     else if (p == "Rock") {
-        if (c == "Paper")
-            result.innerHTML = `You Lose! ${c} beats ${p}`;
+        if (c == "Paper") 
+            cScore += 1;
         else 
-            result.innerHTML = `You Win! ${p} beats ${c}`;
+            pScore += 1;
     }
     // Third Case: Not a tie and player chose paper. 
     else if (p == "Paper") {
         if (c == "Scissors")
-            result.innerHTML = `You Lose! ${c} beats ${p}`;
+            cScore += 1;
         else 
-            result.innerHTML = `You Win! ${p} beats ${c}`;
+            pScore += 1;
     }
     // Final Case: Not a tie and player chose scissors.
     else {
         if (c == "Rock")
-            result.innerHTML = `You Lose! ${c} beats ${p}`;
+            cScore += 1;
         else 
-            result.innerHTML = `You Win! ${p} beats ${c}`;
-    }        
+            pScore += 1;
+    }
+
+    numP.innerText = pScore;
+    numC.innerText = cScore;
+    
+    // Display the winner.
+    if (pScore == 5 && cScore == 5) {
+        // Display Tie!
+        win.innerText = "You tied!";
+        pScore = 0; 
+        cScore = 0;
+    }
+    else if (cScore == 5) {
+        // display you lose!
+        win.innerText = "You lose!";
+        pScore = 0; 
+        cScore = 0;
+    }    
+    else if (pScore == 5) {
+        // display you win!
+        win.innerText = "You win!";
+        pScore = 0; 
+        cScore = 0;
+    }
 }
 
 function game() {
